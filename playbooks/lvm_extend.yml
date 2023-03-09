@@ -1,0 +1,25 @@
+---
+- name: disk demo
+  hosts: all
+  become: true
+  become_method: sudo
+  tasks:
+
+    - name: Install lvm2 dependency
+      package:
+        name: lvm2
+        state: present
+
+    - name: Adding new partition
+      ansible.builtin.shell:
+        cmd: /bin/echo -e "n\n4\n\n\nt\n4\n8e\nw" | sudo fdisk /dev/sda
+
+    - name: Addind lvm to default group
+      shell:
+        sudo vgextend ubuntu-vg /dev/sda4
+
+    - name: Extending lvm
+      shell:
+        sudo lvextend -r -l +100%FREE /dev/ubuntu-vg/ubuntu-lv
+
+
