@@ -1,5 +1,6 @@
 [web_servers]
 [all:vars]
+ansible_ssh_port='22'
 ansbile_connection='ssh'
 ansible_user='user'
 ansible_ssh_pass=''
