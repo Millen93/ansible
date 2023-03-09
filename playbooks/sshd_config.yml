@@ -6,6 +6,6 @@
   
   - name: "Edit sshd_config"
     ansible.builtin.lineinfile:
-    path: /etc/ssh/sshd_config
-    regexp: '^PasswordAuthentication'
-    line: PasswordAuthentication no
+      path: /etc/ssh/sshd_config
+      regexp: '^PasswordAuthentication'
+      line: PasswordAuthentication no
