@@ -6,5 +6,5 @@
   
   - name: "Disable sudo promt"
     ansible.builtin.lineinfile:
-    path:  /etc/sudoers.d/user
-    line: user ALL=(ALL:ALL) NOPASSWD: ALL
+      path:  /etc/sudoers.d/user
+      line: user ALL=(ALL:ALL) NOPASSWD: ALL
