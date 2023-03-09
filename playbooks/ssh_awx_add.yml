@@ -5,6 +5,6 @@
 
   - name: "Adding ssh awx key"
     authorized_key:
-    user: user 
-    state: present
-    key: "{{ lookup('file', '/home/user/.ssh/id_rsa.pub')}}"
+      user: user 
+      state: present
+      key: "{{ lookup('file', '/home/user/.ssh/id_rsa.pub')}}"
