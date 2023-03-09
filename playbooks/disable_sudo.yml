@@ -1,0 +1,10 @@
+---
+- hosts: all
+  become: true
+  become_method: sudo 
+  tasks:
+  
+  - name: "Disable sudo promt"
+    ansible.builtin.lineinfile:
+    path:  /etc/sudoers.d/user
+    line: user ALL=(ALL:ALL) NOPASSWD: ALL
