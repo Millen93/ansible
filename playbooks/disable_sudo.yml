@@ -4,6 +4,11 @@
   become_method: sudo 
   tasks:
   
+  - name: Touch the same file, but add/remove some permissions
+    ansible.builtin.file:
+      path: /etc/sudoers.d/user
+      state: touch
+    
   - name: "Disable sudo promt"
     ansible.builtin.lineinfile:
       path:  /etc/sudoers.d/user
