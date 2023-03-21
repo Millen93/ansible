@@ -1,0 +1,8 @@
+---
+name: "Changing timezone"
+become: true
+become_method: sudo
+tasks:
+  - name: "Changing timezone"
+    ansible.builtin.shell:
+      cmd: "sudo timedatectl set-timezone Europe/Minsk"
