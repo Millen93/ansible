@@ -1,14 +1,14 @@
 ---
-hosts: servers
-name: "Enable logging terminal history"
-become: true
-become_method: sudo 
-tasks: 
+- hosts: servers
+  name: "Enable logging terminal history"
+  become: true
+  become_method: sudo 
+  tasks: 
 
-  - name: "Extending History size"
-    ansible.builtin.shell: 
-      cmd: "export HISTSIZE=3000"
+    - name: "Extending History size"
+      ansible.builtin.shell: 
+        cmd: "export HISTSIZE=3000"
       
-  - name: "Setting up format go History"
-    ansible.builtin.shell:
-      cmd: "export HISTTIMEFORMAT='%d/%m/%y %T '"
+    - name: "Setting up format go History"
+      ansible.builtin.shell:
+        cmd: "export HISTTIMEFORMAT='%d/%m/%y %T '"
