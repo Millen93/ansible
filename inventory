@@ -1,4 +1,4 @@
-[web_servers]
+[servers]
 [all:vars]
 ansible_sudo_pass=''
 ansible_ssh_port='22'
