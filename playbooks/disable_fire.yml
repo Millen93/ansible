@@ -1,4 +1,5 @@
 ---
+hosts: server
 name: "Disable firewall:
 become: true
 become_method: sudo 
