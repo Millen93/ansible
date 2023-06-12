@@ -1,6 +1,6 @@
 ---
 - name: disk demo
-  hosts: all
+  hosts: servers
   become: true
   become_method: sudo
   tasks:
