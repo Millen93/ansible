@@ -1,6 +1,6 @@
 ---
 hosts: server
-name: "Disable firewall:
+name: "Disable firewall"
 become: true
 become_method: sudo 
 tasks: 
