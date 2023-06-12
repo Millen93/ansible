@@ -3,6 +3,6 @@
 - import_playbook: ./playbooks/sshd_config.yml
 - import_playbook: ./playbooks/disable_sudo.yml
 - import_playbook: ./playbooks/lvm_extend.yml
-#- import_playbook: ./playbooks/log_terminal.yml
+- import_playbook: ./playbooks/log_terminal.yml
 - import_playbook: ./playbooks/disable_fire.yml
 - import_playbook: ./playbooks/timezone.yml
