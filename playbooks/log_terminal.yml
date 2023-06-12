@@ -1,4 +1,5 @@
 ---
+hosts: servers
 name: "Enable logging terminal history"
 become: true
 become_method: sudo 
