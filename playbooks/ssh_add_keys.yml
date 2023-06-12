@@ -4,11 +4,11 @@
   become_method: sudo
   tasks:
 
-  - name: "Adding ssh awx key"
-    authorized_key:
-      user: user 
-      state: present
-      key: "{{ lookup('file', '/home/user/.ssh/id_rsa.pub') }}"
+#  - name: "Adding ssh awx key"
+#    authorized_key:
+#      user: user 
+#      state: present
+#      key: "{{ lookup('file', '/home/user/.ssh/id_rsa.pub') }}"
       
   - name: "Adding extra ssh key"
     authorized_key:
