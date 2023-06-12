@@ -1,4 +1,5 @@
 ---
+hosts: servers
 name: "Changing timezone"
 become: true
 become_method: sudo
