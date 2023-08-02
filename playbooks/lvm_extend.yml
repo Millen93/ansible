@@ -10,16 +10,10 @@
         name: lvm2
         state: present
 
+    - name: Adding more space
+      ansible.builtin.shell:
+        cmd: /bin/echo 1 > sudo /sys/block/sda/device/rescan
+
     - name: Adding new partition
       ansible.builtin.shell:
-        cmd: /bin/echo -e "n\n4\n\n\nt\n4\n8e\nw" | sudo fdisk /dev/sda
-
-    - name: Addind lvm to default group
-      shell:
-        sudo vgextend ubuntu-vg /dev/sda4
-
-    - name: Extending lvm
-      shell:
-        sudo lvextend -r -l +100%FREE /dev/ubuntu-vg/ubuntu-lv
-
-
+        cmd: /bin/echo -e "d\n3\nn\n3\n\n\nN\nw" | sudo fdisk /dev/sda
