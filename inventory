@@ -1,5 +1,5 @@
 [servers]
-172.16.1.12
+
 [all:vars]
 ansible_sudo_pass='Relsi_Relsi'
 ansible_ssh_port='22'
