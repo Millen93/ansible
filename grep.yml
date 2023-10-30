@@ -1,0 +1,15 @@
+---
+- hosts: hosts
+  tasks:
+
+   - name: "Deleting"
+     lineinfile: dest=/home/user/.ssh/authorized_keys
+                 state=absent
+                 regexp='^{{ key | replace("+", "\+") }}'
+   - name: "Deleting 2"
+     lineinfile: dest=/home/user/.ssh/authorized_keys
+                 state=absent
+                 regexp='^{{ key_2 | replace("+", "\+") }}'
+
+   - name: "Grepping "
+     shell: cat /home/user/.ssh/authorized_keys | grep 
