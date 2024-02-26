@@ -1,0 +1,11 @@
+[hosts]
+192.168.0.113
+192.168.0.111
+
+[all:vars]
+ansible_ssh_port='22'
+ansible_sudo_pass='user'
+ansible_connection='ssh'
+ansible_user='user'
+ansible_ssh_pass='user'
+#ansible_ssh_private_key_file=''

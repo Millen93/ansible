@@ -1,0 +1,17 @@
+---
+- hosts: hosts
+  become: true
+  become_method: sudo
+  tasks:
+
+  - name: Copy services 
+    ansible.builtin.copy:
+       src: ../logs/{{ ansible_host }}
+       dest: /home/user/services
+
+
+  - name: Restart services
+    ansible.builtin.shell: "for service in $(cat /home/user/services | grep -e '.service' | sed  's/- //'); do sudo systemctl restart $service ; done"
+
+  - name: Clear 
+    ansible.builtin.shell: "rm /home/user/services"

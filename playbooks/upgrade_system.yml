@@ -1,0 +1,36 @@
+---
+- hosts: hosts
+  become: true
+  become_method: sudo
+  tasks: 
+
+  - name: Update packages 
+    ansible.builtin.apt:
+       update_cache: yes
+
+
+  - name: Upgrade system
+    ansible.builtin.apt:
+       name: "*"
+       state: latest 
+
+  - name: Get list services needs to be restart 
+    ansible.builtin.shell: 'needrestart -p'
+    ignore_errors: true
+    register: restart
+
+  - name: You need restart services
+    debug: msg="{{ restart.stdout }}"
+    
+  - name: Write services to log.file
+    ansible.builtin.copy:
+      content: "{{  restart.stdout }}"
+      dest: ../logs/{{ inventory_hostname }}
+    delegate_to: localhost
+    become: false
+
+  - name: Hosts needs to be restarted 
+    ansible.builtin.shell: 'cat ../logs/{{ inventory_hostname }} | grep "CRIT - Kernel" && echo {{ inventory_hostname }} >> ../logs/NEED_RESTART'
+    delegate_to: localhost
+    ignore_errors: true
+    become: false
