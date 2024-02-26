@@ -1,4 +1,4 @@
-# Ansible script for Securely and Safely Upgrading Your System
+# Safely Upgrading
 
 ## Define Your Main Service Which Should Not be Updated on Target Hosts
 To do this, configure the file:
